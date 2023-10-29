@@ -1,0 +1,158 @@
+.brand {
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+}
+.brand:hover {
+  color: white;
+  scale: 125%;
+  transition: 0.3s;
+}
+.navbar {
+  background-color: #386641;
+  box-shadow: 0 0 10px rgb(0, 0, 0);
+  height: 8vh;
+}
+
+.nav-form {
+  width: 40%;
+}
+.nav-a {
+  color: white;
+  text-decoration: none;
+}
+.nav-a:hover {
+  opacity: 0.6;
+  color: white;
+}
+.button {
+  font-size: 1rem;
+  justify-content: center;
+  color: #ffffff;
+  background-color: #6a994e;
+  padding: 10px 30px;
+  border: solid #6a994e 1px;
+  border-radius: 5px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.button:hover {
+  transition: 0.3s;
+  transform: translateY(-0px);
+  color: #6a994e;
+  background-color: #ffffff;
+  border: solid 1px #6a994e;
+}
+main {
+  background-color: #f2e8cf;
+  width: 100vw;
+  height: 92vh;
+  flex-direction: row;
+}
+.left-content {
+  background-image: url(/Images/picture-main.jpg);
+  background-size: cover;
+  object-fit: cover;
+  width: 50vw;
+}
+.right-content {
+  width: 50vw;
+}
+.register-button {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+.title {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  color: white;
+  width: 40%;
+  height: 40%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+.title {
+  -webkit-animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+.title > h1 {
+  font-size: 400%;
+}
+
+.register {
+  text-align: center;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .title > h1 {
+    font-size: 200%;
+  }
+}
+
+@media (max-width: 580px) {
+  .title > h1 {
+    font-size: 200%;
+  }
+  .nav-form {
+    width: 60%;
+  }
+  .button {
+    width: 10%;
+  }
+  .register-button {
+    width: 100%;
+  }
+  main {
+    flex-direction: column;
+  }
+  .left-content {
+    width: 100vw;
+    height: 40vh;
+    text-align: center;
+    align-items: center;
+  }
+  .title {
+    position: relative;
+    left: 50%;
+    width: 90%;
+  }
+  .right-content {
+    height: 50%;
+    margin-top: 30px;
+    width: 100vw;
+  }
+}

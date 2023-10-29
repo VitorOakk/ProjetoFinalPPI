@@ -1,0 +1,25 @@
+.navbar {
+  background-color: #386641;
+  box-shadow: 0 0 10px rgb(0, 0, 0);
+  height: 8vh;
+}
+.brand {
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+  font-size: large;
+}
+.brand:hover {
+  color: white;
+  scale: 125%;
+  transition: 0.3s;
+}
+.body {
+  background-color: #f2e8cf;
+}
+footer {
+  background-color: #386641;
+  color: white;
+  text-align: center;
+}

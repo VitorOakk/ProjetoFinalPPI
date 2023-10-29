@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat Geral | GreenChat</title>
+    <link rel="stylesheet" href="/Css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/Css/geral-style.css" />
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <script src="/Scripts/generalScript.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid col-10">
+          <a class="navbar-brand brand" href="#">GreenChat</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0,0,256,256"
+                width="40px"
+                height="40px"
+              >
+                <g
+                  fill="#ffffff"
+                  fill-rule="nonzero"
+                  stroke="none"
+                  stroke-width="1"
+                  stroke-linecap="butt"
+                  stroke-linejoin="miter"
+                  stroke-miterlimit="10"
+                  stroke-dasharray=""
+                  stroke-dashoffset="0"
+                  font-family="none"
+                  font-weight="none"
+                  font-size="none"
+                  text-anchor="none"
+                  style="mix-blend-mode: normal"
+                >
+                  <g transform="scale(5.12,5.12)">
+                    <path
+                      d="M3,9c-0.36064,-0.0051 -0.69608,0.18438 -0.87789,0.49587c-0.18181,0.3115 -0.18181,0.69676 0,1.00825c0.18181,0.3115 0.51725,0.50097 0.87789,0.49587h44c0.36064,0.0051 0.69608,-0.18438 0.87789,-0.49587c0.18181,-0.3115 0.18181,-0.69676 0,-1.00825c-0.18181,-0.3115 -0.51725,-0.50097 -0.87789,-0.49587zM3,24c-0.36064,-0.0051 -0.69608,0.18438 -0.87789,0.49587c-0.18181,0.3115 -0.18181,0.69676 0,1.00825c0.18181,0.3115 0.51725,0.50097 0.87789,0.49587h44c0.36064,0.0051 0.69608,-0.18438 0.87789,-0.49587c0.18181,-0.3115 0.18181,-0.69676 0,-1.00825c-0.18181,-0.3115 -0.51725,-0.50097 -0.87789,-0.49587zM3,39c-0.36064,-0.0051 -0.69608,0.18438 -0.87789,0.49587c-0.18181,0.3115 -0.18181,0.69676 0,1.00825c0.18181,0.3115 0.51725,0.50097 0.87789,0.49587h44c0.36064,0.0051 0.69608,-0.18438 0.87789,-0.49587c0.18181,-0.3115 0.18181,-0.69676 0,-1.00825c-0.18181,-0.3115 -0.51725,-0.50097 -0.87789,-0.49587z"
+                    ></path>
+                  </g>
+                </g>
+              </svg>
+            </span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="/Html/geral.html"
+                  >Geral</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/Html/eventos.html">Eventos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/Html/denuncias.html">Denuncias</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                  >Meu Perfil</a
+                >
+              </li>
+            </ul>
+            <div
+              class="modal fade"
+              id="exampleModal"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header modal-navbar">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">
+                      Meu Perfil
+                    </h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="figure modal-body d-flex justify-content-center">
+                    <div class="profile">
+                      <div class="profile-header">
+                        <label for="select-image" class="select-image-label">
+                          <img
+                            src="/Images/picture-main.jpg"
+                            class="background-profile-picture"
+                          />
+
+                          <img
+                            src="/Images/picture-main.jpg"
+                            width="100px"
+                            height="100px"
+                            alt=""
+                            class="profile-picture"
+                          />
+                        </label>
+                      </div>
+                      <div class="profile-body">
+                        <h2>Nome Sobrenome</h2>
+                        <h4>Biografia</h4>
+                        <p>
+                          Lorem ipsum dolor, sit amet consectetur adipisicing
+                          elit. Accusantium, aspernatur quisquam earum illum
+                          aliquid et. Autem numquam possimus sunt labore iure
+                          qui libero dolores. Quod vero excepturi praesentium
+                          magni harum?
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn close-button btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Fechar
+                    </button>
+                    <form class="form-picture">
+                      <input
+                        type="file"
+                        style="display: none"
+                        name="selectImage"
+                        id="select-image"
+                        class="select-image"
+                      />
+                      <button type="submit" class="btn button save-button">
+                        Salvar
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <form class="d-flex" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                id="search-input"
+                placeholder="Pesquisar"
+                aria-label="Search"
+              />
+              <button class="btn button btn-outline-success" type="submit">
+                Pesquisar
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="d-flex flex-column col-12">
+      <div class="container">
+        <h1 class="px-4 py-4">Chat Denuncias</h1>
+        <div class="container post-container col-12">
+          <div class="template-post h-90">
+            <div class="post-header d-flex align-items-center">
+              <img src="/Images/picture-main.jpg" class="post-picture" />
+              <h5>Nome Sobrenome</h5>
+            </div>
+            <div class="post-body">
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis
+                nesciunt ipsa quaerat id autem ipsum, nihil, maxime voluptatum,
+                dignissimos temporibus repellat aliquam cum animi perferendis
+                rem! Praesentium aliquid eligendi vitae?
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="container fixed-bottom col-12 h-10 text-area-container">
+          <textarea
+            type="text"
+            class="text-input"
+            placeholder="Digite Aqui..."
+          ></textarea>
+          <button type="button" class="text-button">Enviar</button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
