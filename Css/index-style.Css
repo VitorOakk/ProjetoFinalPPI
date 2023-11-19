@@ -53,7 +53,7 @@ main {
   flex-direction: row;
 }
 .left-content {
-  background-image: url(/Images/picture-main.jpg);
+  background-image: url(../Images/picture-main.jpg);
   background-size: cover;
   object-fit: cover;
   width: 50vw;

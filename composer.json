@@ -1,0 +1,10 @@
+{
+  "autoload": {
+    "psr-4": {
+      "Api\\WebSocket\\": "Scripts/"
+    }
+  },
+  "require": {
+    "cboden/ratchet": "^0.4.4"
+  }
+}

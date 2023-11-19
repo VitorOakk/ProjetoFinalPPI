@@ -6,6 +6,9 @@
     <title>GreenChat | Converse sobre o meio ambiente</title>
     <link rel="stylesheet" href="./Css/index-style.Css" />
     <link rel="stylesheet" href="./Css/bootstrap.min.css" />
+    <script src="./Scripts/jquery-3.7.1.min.js"></script>
+    <script src="./Scripts/index_script.js"></script>
+    
     <!--Google Fonts-->
     <script src="./Scripts/bootstrap.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,6 +17,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
       rel="stylesheet"
     />
+
   </head>
   <body>
     <header>
@@ -68,11 +72,11 @@
                   >Sobre</a
                 >
                 
-              <form class="d-flex">
-                <input class="form-control me-2" type="email" placeholder="Email" aria-label="Email">
-                <input class="form-control me-2" type="password" placeholder="Senha" aria-label="Password">
-                <a href="./Html/geral.html"><button class="button" type="button" >Login</button></a>
-              </form>
+                <form class="d-flex form-login" method="POST" id="form-login">
+                  <input class="form-control me-2 email" id="Email" type="email" placeholder="Email" aria-label="Email">
+                  <input class="form-control me-2 senha" id="Senha" type="password" placeholder="Senha" aria-label="Password">
+                  <input type="submit" value="Login" class="button">
+                </form>
         
           </div>      
       </nav>
@@ -90,7 +94,7 @@
         <div class="form col-9">
           <div class="form-content">
             <h1>REGISTRE-SE</h1>
-            <form>
+            <form method = "POST" id="form-register">
               <div class="mb-3 d-flex">
                 <div class="mb-3 col-6 px-1">
                   <label for="regNome" class="form-label">Nome</label>
@@ -98,7 +102,7 @@
                 </div>
                 <div class="mb-3 col-6 px-1">
                   <label for="regSobreNome" class="form-label">Sobrenome</label>
-                  <input type="text" class="form-control" id="regSobreNome" />
+                  <input type="text" class="form-control" id="regSobrenome" />
                 </div>
               </div>
               <div class="mb-3 px-1">
@@ -111,13 +115,13 @@
                 />
               </div>
               <div class="mb-3 px-1">
-                <label for="exampleInputPassword1" class="form-label"
+                <label for="regSenha" class="form-label"
                   >Senha</label
                 >
                 <input
                   type="password"
                   class="form-control"
-                  id="exampleInputPassword1"
+                  id="regSenha"
                 />
               </div>
               <div class="mb-3 px-1">

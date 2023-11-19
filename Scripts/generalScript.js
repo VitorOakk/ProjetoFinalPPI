@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", main);
-
+const websocket = new WebSocket("ws://localhost:8080");
 function main() {
+  carregarPublicacoes();
+
   //Evento para criar uma nova publicação
   let textButton = document.querySelector(".text-button");
   textButton.addEventListener("click", createNewPost);
@@ -13,32 +15,77 @@ function main() {
   imgInput.addEventListener("change", previewProfilePicture);
 
   // Salvar a imagem de perfil e alterar nas postagens
-  let formPicture = document.querySelector(".form-picture");
-  formPicture.addEventListener("submit", saveProfilePicture);
+  // let formPicture = document.querySelector(".form-picture");
+  //formPicture.addEventListener("submit", saveProfilePicture);
 
   //pesquisa
   let searchButton = document.getElementById("search-button");
   searchButton.addEventListener("click", searchPosts);
 }
+function carregarPublicacoes() {
+  $.ajax({
+    url: "../Scripts/carregarPublicacoes.php",
+    type: "POST",
+    data: {},
+  }).done(function (response) {
+    // Tente fazer o parsing da resposta como JSON
+    let jData = JSON.parse(response);
+
+    // Certifique-se de que response é um array
+    if (Array.isArray(jData)) {
+      for (response in jData) {
+        addPostToUI(
+          jData[response].conteudo,
+          jData[response].nome,
+          jData[response].sobrenome,
+          jData[response].biografia
+        );
+      }
+    } else {
+      console.error("A resposta não é um array válido:", response);
+    }
+  });
+}
 
 function createNewPost() {
   const profileImageURL = localStorage.getItem("profileImageURL");
-  let postContainer = document.querySelector(".post-container");
-  let post = document.createElement("div");
-  post.classList.add("template-post");
-  post.innerHTML = `<div class="post-header d-flex align-items-center">
-  <img src="${profileImageURL}" class="post-picture" />
-  <h5>Nome Sobrenome</h5>
-</div>
-<div class="post-body">
-  <p>
-    ${getTextAreaValue()}
-  </p>
-</div>
-</div>`;
-  if (getTextAreaValue() !== "") {
-    postContainer.appendChild(post);
+  const textAreaValue = getTextAreaValue();
+  const postContainer = document.querySelector(".post-container");
+
+  if (textAreaValue !== "") {
+    const message = {
+      type: "post",
+      content: textAreaValue,
+      profileImageURL: profileImageURL,
+      nome: nomeUsuario,
+      sobrenome: sobrenomeUsuario,
+      id: idUsuario,
+      bio: bioUsuario,
+    };
+
+    //Enviar a mensagem ao banco de dados
+    $.ajax({
+      url: "../Scripts/salvarPost.php",
+      type: "POST",
+      data: {
+        content: message.content,
+        usuarioID: message.id,
+      },
+    }).done(function (data) {
+      console.log("Publicação inserida no BD");
+    });
+    // Enviar a mensagem para o servidor WebSocket
+    websocket.send(JSON.stringify(message));
+    console.log(
+      "Dados enviados ao servidor: " + message.content,
+      message.nome,
+      message.sobrenome,
+      message.id,
+      message.bio
+    );
+    //addPostToUI(message.content, message.nome, message.sobrenome);
   }
+
   cleanTextArea();
   scrollToBottom(postContainer);
   saveProfilePicture;
@@ -154,4 +201,31 @@ function searchPosts() {
     // Pelo menos uma postagem corresponde à pesquisa
     noResults.style.display = "none";
   }
+}
+
+websocket.onmessage = function (event) {
+  const data = JSON.parse(event.data);
+  console.log("Dados recebidos do servidor:", data);
+
+  if (data.type === "post") {
+    addPostToUI(data.content, data.nome, data.sobrenome, data.bio);
+  }
+};
+function addPostToUI(content, nome, sobrenome, bio) {
+  const postContainer = document.querySelector(".post-container");
+  let post = document.createElement("div");
+  post.classList.add("template-post");
+  post.innerHTML = `
+            
+      <div class="post-header d-flex align-items-center">
+          <img src="" class="post-picture" />
+          <h5>${nome} ${sobrenome}</h5>
+      </div>
+      <div class="post-body">
+          <p>${content}</p>
+      </div>
+      `;
+
+  postContainer.appendChild(post);
+  scrollToBottom(postContainer);
 }
